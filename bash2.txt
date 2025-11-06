@@ -1,0 +1,41 @@
+# Задача 2 — все выполненные команды (Mac zsh)
+touch ~/bash2.txt
+cd ~
+mkdir ~/test3
+ls -la ~ | grep test3
+
+# создать файлы 4,5,6 по 4 строки
+printf "row1\nrow2\nrow3\nrow4\n" >  ~/test3/4
+printf "row1\nrow2\nrow3\nrow4\n" >  ~/test3/5
+printf "row1\nrow2\nrow3\nrow4\n" >  ~/test3/6
+
+# найти строку row2 в файле 5
+grep -n 'row2' ~/test3/5
+
+# найти строки со словом row в файле 6
+grep -n 'row'  ~/test3/6
+
+# заменить слово test на fail в файле 4 
+sed -i '' 's/test/fail/g' ~/test3/4
+
+# добавить слово test в файл 4, сохранив содержимое
+echo "test" >> ~/test3/4
+
+# просмотреть процессы (через less, чтобы был скролл)
+ps aux | less
+
+# попытка убить процесс 666 
+kill 666 || echo "kill 666 failed: no such process"
+
+# ping rusau.net (Ctrl+C для остановки)
+ping rusau.net
+# отправить ровно 5 пакетов
+ping -c 5 rusau.net
+
+# получить питомцев со статусом available (в консоль)
+curl -s "https://petstore.swagger.io/v2/pet/findByStatus?status=available" | less
+
+# создать нового пользователя
+curl -s -X POST "https://petstore.swagger.io/v2/user" \
+  -H "Content-Type: application/json" \
+  -d '{"id":1234567,"username":"qa_iana","firstName":"Iana","lastName":"N","email":"iana@example.com","password":"pass123","phone":"1234567890","userStatus":1}'
