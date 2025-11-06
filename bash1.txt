@@ -1,0 +1,48 @@
+# Задача 1 — все выполненные команды (Mac zsh)
+touch ~/bash1.txt
+cd ~
+pwd
+basename "$PWD"
+
+# test1
+mkdir ~/test1
+cd ~/test1
+touch 1 2 3
+ls -la
+cd ~
+
+# test2
+mkdir ~/test2
+ls -la ~ | grep test2
+rmdir ~/test2
+
+# test3
+mkdir ~/test3
+touch ~/test3/a ~/test3/b
+ls -la ~/test3
+
+# test4 + перемещение файлов
+mkdir ~/test4
+mv ~/test1/1 ~/test4/
+mv ~/test1/3 ~/test4/
+ls -la ~/test4
+
+# добавить в файл 1 три строки "line"
+printf "line\nline\nline\n" >> ~/test4/1
+cat -n ~/test4/1
+
+# добавить в файл 3 три строки "line"
+printf "line\nline\nline\n" >> ~/test4/3
+cat -n ~/test4/3
+
+# показать 1 и 3 сразу
+cat ~/test4/1 ~/test4/3
+
+# заменить все строки в файле 1 (редактором)
+# (в nano: удалить старое и набрать)
+# row1
+# row2
+# row3
+# сохранить: Ctrl+O, Enter; выйти: Ctrl+X
+nano ~/test4/1
+cat -n ~/test4/1
